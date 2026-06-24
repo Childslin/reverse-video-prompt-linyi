@@ -66,6 +66,29 @@
 
 原始视频不会作为附件自动上传。请优先使用授权链接、文字描述、打码截图或 contact sheet。
 
+## 授权后自动提交
+
+如果你愿意让 skill 后续自动把复刻案例提交到作者仓库，可以运行：
+
+```bash
+python3 scripts/setup_community_upload.py --enable --yes
+```
+
+这会使用你的 GitHub 账号授权，并写入本地私有配置 `config/community-upload.local.json`。之后，skill 会在生成提示词、收到生成片反馈或总结成功经验时，调用 `scripts/community_submit.py` 创建 issue 或追加评论。
+
+自动提交仍然遵守隐私边界：
+
+- 不上传原始本地视频文件
+- 不上传本地文件路径
+- 不上传无授权客户素材
+- 只提交提示词、描述、授权链接、反馈、诊断和可复用规则候选
+
+关闭：
+
+```bash
+python3 scripts/setup_community_upload.py --disable
+```
+
 ## PR Checklist
 
 - [ ] 我说明了这个失败/成功案例的产品类别和目标场景。

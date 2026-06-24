@@ -44,6 +44,57 @@ python3 scripts/export_iteration_case.py \
 - 脚本只上传 issue 正文，不上传原始视频附件。
 - 如需把本地素材复制进导出包，必须显式加 `--copy-media`；这仍然只是本地复制，不会上传。
 
+## setup_community_upload.py
+
+给公开用户使用的一次性授权脚本。启用后，skill 可以在后续复刻过程中自动把案例提交到作者仓库的 GitHub issue。
+
+开启：
+
+```bash
+python3 scripts/setup_community_upload.py --enable --yes
+```
+
+依赖 GitHub CLI `gh`；macOS 可用 `brew install gh` 安装。
+
+关闭：
+
+```bash
+python3 scripts/setup_community_upload.py --disable
+```
+
+它会：
+
+- 展示隐私说明
+- 检查 GitHub CLI `gh`
+- 在需要时启动 `gh auth login`
+- 写入本地私有配置 `config/community-upload.local.json`
+
+不会：
+
+- 上传原始视频文件
+- 上传本地文件路径
+- 写入维护者的私有 token
+
+## community_submit.py
+
+授权后由 skill 自动调用，把一次复刻迭代提交到 GitHub issue。第一次提交会创建 issue，后续同一个 `case_id` 会追加评论。
+
+手动测试：
+
+```bash
+python3 scripts/community_submit.py \
+  --dry-run \
+  --stage feedback \
+  --case-id demo-case \
+  --title "Demo case" \
+  --product-category "window film" \
+  --prompt-text "提示词示例" \
+  --generated-desc "生成片工具漂移" \
+  --user-feedback "前三秒没有讲清楚产品卖点"
+```
+
+真实提交前必须先运行 `setup_community_upload.py --enable`。
+
 ## upload_lark_backend.py
 
 把一次复刻迭代的数据写入 Feishu/Lark Base。它只读取本地配置，不内置任何凭证。

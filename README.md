@@ -47,6 +47,14 @@ git -C ~/.codex/skills/reverse-video-prompt pull
 使用 reverse-video-prompt 帮我反推这个视频提示词。
 ```
 
+如果你愿意把复刻案例自动提交给作者，先完成一次授权：
+
+```bash
+python3 ~/.codex/skills/reverse-video-prompt/scripts/setup_community_upload.py --enable --yes
+```
+
+这需要本机已安装 GitHub CLI `gh`。脚本会使用你的 GitHub 账号授权，后续 skill 会把提示词、生成结果描述、反馈和可复用规则候选提交到本仓库 issue。默认不会上传原始视频文件。
+
 生成后继续迭代：
 
 ```text
@@ -72,7 +80,47 @@ git -C ~/.codex/skills/reverse-video-prompt pull
 
 默认不会；显式授权和配置后可以自动同步。
 
-公开版本不应该悄悄上传使用记录、提示词、原片、生成片或任何素材。要开启 Feishu/Lark Base 后台同步，需要用户在本地创建 `config/lark-backend.local.json`，并同时设置：
+公开版本不应该悄悄上传使用记录、提示词、原片、生成片或任何素材。现在有两种显式授权后的同步方式。
+
+### 1. 提交给作者的公开社区后台
+
+这是推荐给普通用户的方式：授权一次 GitHub，后续自动向 `zhengzhentao86/reverse-video-prompt` 创建 issue 或追加评论。
+
+开启：
+
+```bash
+python3 scripts/setup_community_upload.py --enable --yes
+```
+
+如果没有安装 GitHub CLI，请先安装 `gh`；macOS 可用 `brew install gh`。
+
+关闭：
+
+```bash
+python3 scripts/setup_community_upload.py --disable
+```
+
+启用后，本地会生成 `config/community-upload.local.json`，并设置：
+
+- `enabled: true`
+- `auto_submit: true`
+- `consent_acknowledged: true`
+
+自动提交的内容包括：
+
+- 产品类别
+- 使用的提示词
+- 原片描述或有权分享的链接
+- 生成片描述或有权分享的链接
+- 用户反馈
+- 问题归因
+- 可复用规则候选
+
+默认不会上传本地原始视频、客户素材或本地文件路径。
+
+### 2. 自己的 Feishu/Lark Base 后台
+
+要开启 Feishu/Lark Base 后台同步，需要用户在本地创建 `config/lark-backend.local.json`，并同时设置：
 
 - `enabled: true`
 - `auto_upload: true`
@@ -119,7 +167,7 @@ python3 scripts/export_iteration_case.py \
 
 https://github.com/zhengzhentao86/reverse-video-prompt/issues/new?template=iteration-case.yml
 
-如果要让很多人统一上传到同一个中心后台，推荐做一个明确的安装/首次运行授权流程，或者用带 OAuth 的中转服务写入维护者的 Base。不要把维护者的本地授权、私有配置或访问凭证提交到公开仓库。
+如果以后要收集原始视频文件本身，建议再做带 OAuth 的中转服务或 Feishu/Lark 应用授权流。不要把维护者的本地授权、私有配置或访问凭证提交到公开仓库。
 
 ## 贡献案例
 
@@ -145,12 +193,16 @@ reverse-video-prompt/
 ├── references/
 │   ├── prompt-framework.md
 │   ├── iteration-workflow.md
+│   ├── community-upload.md
 │   └── lark-backend.md
 ├── scripts/
 │   ├── README.md
 │   ├── export_iteration_case.py
+│   ├── setup_community_upload.py
+│   ├── community_submit.py
 │   └── upload_lark_backend.py
 ├── config/
+│   ├── community-upload.example.json
 │   └── lark-backend.example.json
 ├── evals/
 │   └── evals.json
@@ -165,9 +217,13 @@ reverse-video-prompt/
 - `SKILL.md`: 触发说明和主工作流
 - `references/prompt-framework.md`: 视频反推和提示词生成框架
 - `references/iteration-workflow.md`: 生成后复盘、自迭代和社区贡献协议
+- `references/community-upload.md`: 授权一次后提交到作者 GitHub issue 的社区后台协议
 - `references/lark-backend.md`: Feishu/Lark Base 后台同步协议
 - `scripts/export_iteration_case.py`: 本地导出迭代案例，可选显式创建 GitHub issue
+- `scripts/setup_community_upload.py`: 首次授权并开启/关闭社区自动提交
+- `scripts/community_submit.py`: 授权后把复刻迭代数据提交到 GitHub issue
 - `scripts/upload_lark_backend.py`: 授权后把复刻迭代数据写入 Lark Base
+- `config/community-upload.example.json`: 社区自动提交配置模板，本地实际配置不要提交
 - `config/lark-backend.example.json`: Lark 后台配置模板，本地实际配置不要提交
 - `evals/evals.json`: 回归测试案例种子
 - `CONTRIBUTING.md`: 贡献说明
