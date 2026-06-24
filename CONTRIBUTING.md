@@ -59,10 +59,10 @@
 默认情况下脚本只在本地生成文件，不上传素材、不上传使用记录。只有在你明确传入：
 
 ```bash
---upload issue --yes --repo owner/repo
+--upload issue --yes
 ```
 
-时，脚本才会调用 GitHub CLI 创建 issue。
+时，脚本才会调用 GitHub CLI 创建 issue。默认提交到 `zhengzhentao86/reverse-video-prompt`；如需提交到 fork 或其它仓库，可以额外传 `--repo owner/repo`。
 
 原始视频不会作为附件自动上传。请优先使用授权链接、文字描述、打码截图或 contact sheet。
 

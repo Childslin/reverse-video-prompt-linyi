@@ -33,7 +33,6 @@ python3 scripts/export_iteration_case.py \
   --title "窗膜生成片工具和材料漂移" \
   --product-category "window film" \
   --observed-failure "短手刮变长柄玻璃刮，黑蓝平膜变银色皱膜。" \
-  --repo owner/reverse-video-prompt \
   --upload issue \
   --yes
 ```
@@ -41,6 +40,7 @@ python3 scripts/export_iteration_case.py \
 注意：
 
 - 上传需要本机安装并登录 `gh`。
+- 默认提交到 `zhengzhentao86/reverse-video-prompt`；如需提交到其它仓库，可加 `--repo owner/repo`。
 - 脚本只上传 issue 正文，不上传原始视频附件。
 - 如需把本地素材复制进导出包，必须显式加 `--copy-media`；这仍然只是本地复制，不会上传。
 

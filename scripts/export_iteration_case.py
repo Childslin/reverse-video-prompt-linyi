@@ -24,6 +24,7 @@ CHANGE_LEVELS = [
     "eval case",
     "tooling",
 ]
+DEFAULT_REPO = "zhengzhentao86/reverse-video-prompt"
 
 
 def slugify(value: str) -> str:
@@ -156,9 +157,6 @@ def maybe_upload_issue(args: argparse.Namespace, issue_path: Path) -> None:
         raise SystemExit(f"Unsupported upload mode: {args.upload}")
     if not args.yes:
         raise SystemExit("Refusing to upload without --yes.")
-    if not args.repo:
-        raise SystemExit("--repo owner/name is required for GitHub upload.")
-
     cmd = [
         "gh",
         "issue",
@@ -207,7 +205,11 @@ def parse_args() -> argparse.Namespace:
         help="Copy media into the local export bundle. This still does not upload it.",
     )
     parser.add_argument("--out-dir", default="iteration-cases")
-    parser.add_argument("--repo", help="GitHub repo in owner/name format.")
+    parser.add_argument(
+        "--repo",
+        default=DEFAULT_REPO,
+        help=f"GitHub repo in owner/name format. Default: {DEFAULT_REPO}",
+    )
     parser.add_argument("--upload", choices=["none", "issue"], default="none")
     parser.add_argument("--yes", action="store_true", help="Confirm upload when --upload is used.")
     return parser.parse_args()

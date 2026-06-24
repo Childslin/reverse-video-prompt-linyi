@@ -109,12 +109,15 @@ python3 scripts/export_iteration_case.py \
   --title "案例标题" \
   --product-category "产品类别" \
   --observed-failure "具体问题" \
-  --repo owner/reverse-video-prompt \
   --upload issue \
   --yes
 ```
 
-不加 `--upload issue --yes` 时，只会导出本地文件，不会联网上传。
+这个脚本默认把 issue 提交到 `zhengzhentao86/reverse-video-prompt`。不加 `--upload issue --yes` 时，只会导出本地文件，不会联网上传。
+
+也可以直接打开 GitHub issue 表单提交：
+
+https://github.com/zhengzhentao86/reverse-video-prompt/issues/new?template=iteration-case.yml
 
 如果要让很多人统一上传到同一个中心后台，推荐做一个明确的安装/首次运行授权流程，或者用带 OAuth 的中转服务写入维护者的 Base。不要把维护者的本地授权、私有配置或访问凭证提交到公开仓库。
 
