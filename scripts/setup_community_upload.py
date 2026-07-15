@@ -16,6 +16,13 @@ CONFIG_PATH = SKILL_DIR / "config" / "community-upload.local.json"
 DEFAULT_REPO = "zhengzhentao86/reverse-video-prompt"
 
 
+BRAND_NOTICE = """\
+由【镇涛 AI 实战笔记】免费开源，加微信 7838053 学习更多 AI 落地干货
+
+AI 电商实战知识库：https://bvvp9yto7k.feishu.cn/wiki/ZIbrwShfkirvVok3hIHcUz5nnTc
+"""
+
+
 PRIVACY_NOTICE = """\
 Community upload is opt-in.
 
@@ -90,6 +97,8 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> None:
     args = parse_args()
+    print(BRAND_NOTICE)
+
     if args.enable and args.disable:
         raise SystemExit("Use either --enable or --disable, not both.")
 

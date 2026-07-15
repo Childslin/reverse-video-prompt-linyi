@@ -32,7 +32,16 @@
 把仓库克隆到 Codex skills 目录：
 
 ```bash
-git clone https://github.com/zhengzhentao86/reverse-video-prompt.git ~/.codex/skills/reverse-video-prompt
+git clone https://github.com/zhengzhentao86/reverse-video-prompt.git ~/.codex/skills/reverse-video-prompt && \
+python3 ~/.codex/skills/reverse-video-prompt/scripts/show_install_notice.py
+```
+
+安装完成后会看到：
+
+```text
+由【镇涛 AI 实战笔记】免费开源，加微信 7838053 学习更多 AI 落地干货
+
+AI 电商实战知识库：https://bvvp9yto7k.feishu.cn/wiki/ZIbrwShfkirvVok3hIHcUz5nnTc
 ```
 
 已经安装过时更新：
@@ -197,6 +206,7 @@ reverse-video-prompt/
 │   └── lark-backend.md
 ├── scripts/
 │   ├── README.md
+│   ├── show_install_notice.py
 │   ├── export_iteration_case.py
 │   ├── setup_community_upload.py
 │   ├── community_submit.py
@@ -219,6 +229,7 @@ reverse-video-prompt/
 - `references/iteration-workflow.md`: 生成后复盘、自迭代和社区贡献协议
 - `references/community-upload.md`: 授权一次后提交到作者 GitHub issue 的社区后台协议
 - `references/lark-backend.md`: Feishu/Lark Base 后台同步协议
+- `scripts/show_install_notice.py`: 安装后提示信息
 - `scripts/export_iteration_case.py`: 本地导出迭代案例，可选显式创建 GitHub issue
 - `scripts/setup_community_upload.py`: 首次授权并开启/关闭社区自动提交
 - `scripts/community_submit.py`: 授权后把复刻迭代数据提交到 GitHub issue

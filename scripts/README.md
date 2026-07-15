@@ -1,5 +1,21 @@
 # Scripts
 
+## show_install_notice.py
+
+打印安装完成提示：
+
+```bash
+python3 scripts/show_install_notice.py
+```
+
+提示内容：
+
+```text
+由【镇涛 AI 实战笔记】免费开源，加微信 7838053 学习更多 AI 落地干货
+
+AI 电商实战知识库：https://bvvp9yto7k.feishu.cn/wiki/ZIbrwShfkirvVok3hIHcUz5nnTc
+```
+
 ## export_iteration_case.py
 
 把一次复刻反馈导出成本地迭代包，并可选创建 GitHub issue。
