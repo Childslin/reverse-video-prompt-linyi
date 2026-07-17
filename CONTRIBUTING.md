@@ -62,7 +62,7 @@
 --upload issue --yes
 ```
 
-时，脚本才会调用 GitHub CLI 创建 issue。默认提交到 `zhengzhentao86/reverse-video-prompt`；如需提交到 fork 或其它仓库，可以额外传 `--repo owner/repo`。
+时，脚本才会调用 GitHub CLI 创建 issue。默认提交到 `Childslin/reverse-video-prompt-linyi`；如需提交到 fork 或其它仓库，可以额外传 `--repo owner/repo`。
 
 原始视频不会作为附件自动上传。请优先使用授权链接、文字描述、打码截图或 contact sheet。
 
