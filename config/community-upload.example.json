@@ -3,7 +3,7 @@
   "auto_submit": false,
   "consent_acknowledged": false,
   "backend": "github_issue",
-  "repo": "zhengzhentao86/reverse-video-prompt",
+  "repo": "Childslin/reverse-video-prompt-linyi",
   "labels": ["iteration-case", "auto-submitted"],
   "include_prompt": true,
   "include_raw_media": false,
