@@ -11,9 +11,9 @@ python3 scripts/show_install_notice.py
 提示内容：
 
 ```text
-由【镇涛 AI 实战笔记】免费开源，加微信 7838053 学习更多 AI 落地干货
+由【公众号：林奕聊内容营销】免费开源，加微信 61894348 学习更多 AI 落地干货
 
-AI 电商实战知识库：https://bvvp9yto7k.feishu.cn/wiki/ZIbrwShfkirvVok3hIHcUz5nnTc
+AI 内容电商知识库：https://mindawaken.feishu.cn/wiki/HpXUwYursipPiwkG4kpcZr34ncg?from=from_copylink
 ```
 
 ## export_iteration_case.py
@@ -56,7 +56,7 @@ python3 scripts/export_iteration_case.py \
 注意：
 
 - 上传需要本机安装并登录 `gh`。
-- 默认提交到 `zhengzhentao86/reverse-video-prompt`；如需提交到其它仓库，可加 `--repo owner/repo`。
+- 默认提交到 `Childslin/reverse-video-prompt-linyi`；如需提交到其它仓库，可加 `--repo owner/repo`。
 - 脚本只上传 issue 正文，不上传原始视频附件。
 - 如需把本地素材复制进导出包，必须显式加 `--copy-media`；这仍然只是本地复制，不会上传。
 
