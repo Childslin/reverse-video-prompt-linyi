@@ -32,16 +32,16 @@
 把仓库克隆到 Codex skills 目录：
 
 ```bash
-git clone https://github.com/zhengzhentao86/reverse-video-prompt.git ~/.codex/skills/reverse-video-prompt && \
+git clone https://github.com/Childslin/reverse-video-prompt-linyi.git ~/.codex/skills/reverse-video-prompt && \
 python3 ~/.codex/skills/reverse-video-prompt/scripts/show_install_notice.py
 ```
 
 安装完成后会看到：
 
 ```text
-由【镇涛 AI 实战笔记】免费开源，加微信 7838053 学习更多 AI 落地干货
+由【公众号：林奕聊内容营销】免费开源，加微信 61894348 学习更多 AI 落地干货
 
-AI 电商实战知识库：https://bvvp9yto7k.feishu.cn/wiki/ZIbrwShfkirvVok3hIHcUz5nnTc
+AI 内容电商知识库：https://mindawaken.feishu.cn/wiki/HpXUwYursipPiwkG4kpcZr34ncg?from=from_copylink
 ```
 
 已经安装过时更新：
@@ -93,7 +93,7 @@ python3 ~/.codex/skills/reverse-video-prompt/scripts/setup_community_upload.py -
 
 ### 1. 提交给作者的公开社区后台
 
-这是推荐给普通用户的方式：授权一次 GitHub，后续自动向 `zhengzhentao86/reverse-video-prompt` 创建 issue 或追加评论。
+这是推荐给普通用户的方式：授权一次 GitHub，后续自动向 `Childslin/reverse-video-prompt-linyi` 创建 issue 或追加评论。
 
 开启：
 
@@ -170,11 +170,11 @@ python3 scripts/export_iteration_case.py \
   --yes
 ```
 
-这个脚本默认把 issue 提交到 `zhengzhentao86/reverse-video-prompt`。不加 `--upload issue --yes` 时，只会导出本地文件，不会联网上传。
+这个脚本默认把 issue 提交到 `Childslin/reverse-video-prompt-linyi`。不加 `--upload issue --yes` 时，只会导出本地文件，不会联网上传。
 
 也可以直接打开 GitHub issue 表单提交：
 
-https://github.com/zhengzhentao86/reverse-video-prompt/issues/new?template=iteration-case.yml
+https://github.com/Childslin/reverse-video-prompt-linyi/issues/new?template=iteration-case.yml
 
 如果以后要收集原始视频文件本身，建议再做带 OAuth 的中转服务或 Feishu/Lark 应用授权流。不要把维护者的本地授权、私有配置或访问凭证提交到公开仓库。
 
