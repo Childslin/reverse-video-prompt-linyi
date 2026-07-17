@@ -6,7 +6,7 @@ Use this reference when `config/community-upload.local.json` exists and has `"en
 
 Community upload lets public users authorize once with their own GitHub account, then automatically submit reverse-video-prompt iteration cases to the maintainer repository:
 
-`zhengzhentao86/reverse-video-prompt`
+`Childslin/reverse-video-prompt-linyi`
 
 This uses GitHub Issues as the central backend. It does not require the maintainer to run a server and does not expose maintainer Lark credentials.
 
