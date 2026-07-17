@@ -24,7 +24,7 @@ CHANGE_LEVELS = [
     "eval case",
     "tooling",
 ]
-DEFAULT_REPO = "zhengzhentao86/reverse-video-prompt"
+DEFAULT_REPO = "Childslin/reverse-video-prompt-linyi"
 
 
 def slugify(value: str) -> str:
